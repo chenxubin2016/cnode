@@ -1,11 +1,10 @@
 import '@assets/less/index.less'
-import {Button} from 'antd'
+import Router from '@/router/index'
 
 function App() {
   return (
     <div className="div">
-      kkdkksjkd
-      <Button type="primary">ceshi</Button>
+      <Router/>
     </div>
   );
 }
