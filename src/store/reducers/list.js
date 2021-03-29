@@ -1,3 +1,16 @@
-export default function list(list = {}, action) {
-  return list
+export default function list(list = {
+  loading: true,
+  data: []
+}, action) {
+  switch (action.type) {
+    case 'LIST_LOADOVER':
+      const {data} = action
+      return {
+        ...list,
+        data,
+        loading: false
+      };
+    default :
+      return list
+  }
 }

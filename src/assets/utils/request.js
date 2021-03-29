@@ -1,10 +1,10 @@
 import axios from 'axios'
 import Qs from 'qs'
 
-const baseUrl = ''
+const baseURL = 'https://cnodejs.org/api/v1'
 
 const config = {
-  baseUrl,
+  baseURL,
   // `transformRequest` 允许在向服务器发送前，修改请求数据
   // 只能用在 'PUT', 'POST' 和 'PATCH' 这几个请求方法
   // 后面数组中的函数必须返回一个字符串，或 ArrayBuffer，或 Stream
@@ -36,17 +36,20 @@ const config = {
 const http = axios.create(config)
 // 请求处理/请求异常处理
 http.interceptors.request.use(config => {
-
-}, error => {
-
+  // 在发送请求之前做些什么
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  return Promise.reject(error);
 })
 // 返回数据处理/异常处理
-http.interceptors.response.use(res => {
-
-}, error => {
-
+http.interceptors.response.use(response => {
+// 对响应数据做点什么
+  return response;
+}, function (error) {
+  // 对响应错误做点什么
+  return Promise.reject(error);
 })
-export default http
 
 /**
  * @file: request.js
@@ -57,7 +60,7 @@ export default http
  * @author: chenxubin
  * @date: 2021/3/23
  */
-export const get = ({url, params}) => {
+export const get = (url, params) => {
   return http.get(url, {
     method: 'get',
     params
@@ -73,9 +76,11 @@ export const get = ({url, params}) => {
  * @author: chenxubin
  * @date: 2021/3/23
  */
-export const post = ({url, params}) => {
+export const post = (url, params) => {
   return http.post(url, {
     method: 'post',
     data: params
   })
 }
+
+export default http

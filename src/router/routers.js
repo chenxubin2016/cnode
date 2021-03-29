@@ -1,9 +1,13 @@
+import React from 'react'
 import Home from '@/views/Home/index'
 import Start from '@/views/Start/index'
 import About from '@/views/About/index'
 import Topic from '@/views/Topic/index'
 import User from '@/views/User/index'
 import Article from '@/views/Article/index'
+import Api from '@/views/Api/index'
+import Reg from '@/views/Reg/index'
+import Login from '@/views/Login/index'
 import View404 from '@/views/View404/index'
 
 const routes = [
@@ -26,12 +30,36 @@ const routes = [
     }
   },
   {
+    title: 'API',
+    path: '/api',
+    isNav: true,
+    render(props) {
+      return <Api {...props}/>
+    }
+  },
+  {
     title: '关于',
     path: '/about',
     exact: false,
     isNav: true,
     render(props) {
       return <About {...props}/>
+    }
+  },
+  {
+    title: '注册',
+    path: '/registered',
+    isNav: true,
+    render(props) {
+      return <Reg {...props}/>
+    }
+  },
+  {
+    title: '登录',
+    path: '/login',
+    isNav: true,
+    render(props) {
+      return <Login {...props}/>
     }
   },
   {

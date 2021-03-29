@@ -1,0 +1,41 @@
+.left {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .logo {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img{
+      margin-top: -6px;
+    }
+  }
+  .search-form {
+    margin-left: 20px;
+    padding-left: 22px;
+    width: 224px;
+    height: 26px;
+    border: unset;
+    border-radius: 13px;
+    outline: unset;
+    box-sizing: border-box;
+    background: url("../img/search.png") 4px 4px no-repeat #888;
+    font-size: 14px;
+    transition: all 0.5s;
+    &:hover, &:focus {
+      background-color: #fff;
+    }
+  }
+}
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  li {
+    height: 50px;
+    line-height: 50px;
+  }
+}

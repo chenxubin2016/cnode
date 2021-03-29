@@ -7,7 +7,7 @@ export default function RouterList() {
     <Switch>
       {
         routers.map((item, index) => {
-          return <Route key={index} exact={item.exact} render={item.render}/>
+          return <Route key={index} path={item.path} exact={item.exact} render={item.render}/>
         })
       }
     </Switch>
